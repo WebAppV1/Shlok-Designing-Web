@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Login — Shlok Designing</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="admin">
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="brand">
+      <span class="mark"></span>
+      <span>Shlok Designing<small>Surat · Jacquard Saree Unit</small></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../index.html" data-page="home">Home</a></li>
+      <li><a href="../about.html" data-page="about">About Us</a></li>
+      <li><a href="../catalog.html" data-page="catalog">Design Catalog</a></li>
+      <li><a href="../track-order.html" data-page="track">Track Order</a></li>
+      <li><a href="../dealer/login.html" class="nav-cta">Dealer Portal</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<section style="padding:80px 0;min-height:60vh;display:flex;align-items:center;">
+  <div class="container" style="max-width:440px;">
+    <div class="section-head center" style="margin-bottom:28px;">
+      <span class="eyebrow">Service 04 · Restricted</span>
+      <h2>Admin Dashboard</h2>
+      <p>Staff access only — production, orders, inventory &amp; analytics.</p>
+    </div>
+
+    <form id="adminLoginForm" class="card pad-lg">
+      <div class="field">
+        <label for="username">Username</label>
+        <input id="username" required placeholder="admin">
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input id="password" type="password" required placeholder="••••••••">
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+      <p id="loginError" class="text-sm" style="color:var(--wine-700);margin-top:12px;margin-bottom:0;display:none;">Incorrect username or password.</p>
+      <div class="card pad-md" style="margin-top:22px;background:var(--ivory-100);border:none;">
+        <p class="text-sm mono" style="margin-bottom:6px;"><strong>Demo login</strong></p>
+        <p class="text-sm mono" style="margin-bottom:0;">Username: admin &nbsp;·&nbsp; Password: shlok@2026</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom container" style="border-top:none;">
+      <span>© 2026 Shlok Designing. Prototype built for academic purposes.</span>
+      <span class="footer-credit">Societal Internship Project — GEC Bhavnagar · Harsh Parmar (Team Lead) · Mitesh Vegad · Jay Kakadiya · Naitik Dodiya</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/data.js"></script>
+<script src="../js/main.js"></script>
+<script>
+const ADMIN_USER = 'admin';
+const ADMIN_PASS = 'shlok@2026';
+
+document.getElementById('adminLoginForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+  const u = document.getElementById('username').value.trim();
+  const p = document.getElementById('password').value;
+  if (u === ADMIN_USER && p === ADMIN_PASS) {
+    DB.setAdminSession();
+    window.location.href = 'dashboard.html';
+  } else {
+    document.getElementById('loginError').style.display = 'block';
+  }
+});
+</script>
+</body>
+</html>

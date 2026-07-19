@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dealer Dashboard — Shlok Designing</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="dealer">
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="brand">
+      <span class="mark"></span>
+      <span>Shlok Designing<small>Dealer Portal</small></span>
+    </a>
+    <ul class="nav-links">
+      <li><span id="dealerName" class="mono text-sm" style="padding:9px 10px;color:var(--ink-500);"></span></li>
+      <li><a href="#" id="logoutBtn" class="nav-cta">Log Out</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<div class="page-hero" style="padding:36px 0;">
+  <div class="container">
+    <span class="eyebrow">Dealer Portal</span>
+    <h1 id="welcomeHeading" style="font-size:28px;">Welcome back</h1>
+    <p>View current stock, place a bulk order, and track everything you've ordered from Shlok Designing.</p>
+  </div>
+</div>
+
+<section style="padding-top:44px;">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Live catalog stock</span>
+      <h2>Place a bulk order</h2>
+    </div>
+
+    <div id="stockGrid" class="services-grid" style="grid-template-columns:repeat(3,1fr);margin-bottom:20px;"></div>
+
+    <form id="orderForm" class="card pad-lg" style="max-width:640px;">
+      <h3 style="margin-bottom:18px;">Order form</h3>
+      <div class="field">
+        <label for="designSelect">Design</label>
+        <select id="designSelect"></select>
+      </div>
+      <div class="field">
+        <label for="qtyInput">Quantity (pieces)</label>
+        <input id="qtyInput" type="number" min="1" required placeholder="e.g. 20">
+      </div>
+      <button type="submit" class="btn btn-primary">Place Order</button>
+    </form>
+  </div>
+</section>
+
+<section class="bg-ivory">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Your history</span>
+      <h2>Order status</h2>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Order ID</th><th>Design</th><th>Qty</th><th>Placed</th><th>Status</th></tr>
+        </thead>
+        <tbody id="ordersTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom container" style="border-top:none;">
+      <span>© 2026 Shlok Designing. Prototype built for academic purposes.</span>
+      <span class="footer-credit">Societal Internship Project — GEC Bhavnagar · Harsh Parmar (Team Lead) · Mitesh Vegad · Jay Kakadiya · Naitik Dodiya</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/data.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/dealer.js"></script>
+</body>
+</html>

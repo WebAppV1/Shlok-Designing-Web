@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard — Shlok Designing</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+  .admin-shell{display:grid;grid-template-columns:220px 1fr;min-height:calc(100vh - 65px);}
+  .admin-side{background:var(--wine-900);padding:28px 16px;}
+  .admin-side button{
+    display:flex;align-items:center;gap:10px;width:100%;text-align:left;
+    padding:11px 14px;border-radius:8px;border:0;background:transparent;color:#E9D9CE;
+    font-size:14px;font-weight:500;margin-bottom:4px;
+  }
+  .admin-side button.active{background:rgba(255,255,255,.1);color:#fff;}
+  .admin-side button:hover{background:rgba(255,255,255,.06);}
+  .admin-main{padding:34px 36px;background:var(--ivory-50);}
+  .tab-panel{display:none;}
+  .tab-panel.active{display:block;}
+  .subhead{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:22px;flex-wrap:wrap;gap:10px;}
+  .subhead h2{margin-bottom:4px;font-size:24px;}
+  select.status-select{padding:7px 10px;font-size:12.5px;border-radius:6px;border:1px solid var(--line);font-family:var(--font-mono);}
+  .chart-row{display:flex;align-items:flex-end;gap:14px;height:180px;padding:10px 4px 0;}
+  .chart-bar{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:8px;}
+  .chart-bar .bar{width:100%;background:linear-gradient(180deg,var(--gold-500),var(--wine-700));border-radius:5px 5px 0 0;min-height:4px;}
+  .chart-bar span{font-size:11px;color:var(--ink-500);text-align:center;}
+  @media (max-width:820px){
+    .admin-shell{grid-template-columns:1fr;}
+    .admin-side{display:flex;overflow-x:auto;padding:14px;gap:4px;}
+    .admin-side button{white-space:nowrap;width:auto;margin-bottom:0;}
+    .admin-main{padding:24px 18px;}
+  }
+</style>
+</head>
+<body data-page="admin">
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="../index.html" class="brand">
+      <span class="mark"></span>
+      <span>Shlok Designing<small>Admin Dashboard</small></span>
+    </a>
+    <ul class="nav-links">
+      <li><span class="mono text-sm" style="padding:9px 10px;color:var(--ink-500);">Signed in as Admin</span></li>
+      <li><a href="#" id="logoutBtn" class="nav-cta">Log Out</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<div class="admin-shell">
+  <aside class="admin-side">
+    <button data-tab="overview" class="active">Overview</button>
+    <button data-tab="production">Production Tracking</button>
+    <button data-tab="orders">Orders</button>
+    <button data-tab="inventory">Inventory</button>
+    <button data-tab="custom">Custom Requests</button>
+  </aside>
+
+  <main class="admin-main">
+
+    <section id="tab-overview" class="tab-panel active">
+      <div class="subhead"><div><span class="eyebrow">Overview</span><h2>Unit at a glance</h2></div></div>
+      <div class="stats-row" id="statTiles" style="margin-bottom:32px;"></div>
+      <div class="card pad-lg">
+        <h3 style="font-size:16px;margin-bottom:2px;">Units in production by design</h3>
+        <p class="text-sm text-muted" style="margin-bottom:0;">Across all active batches</p>
+        <div class="chart-row" id="chart"></div>
+      </div>
+    </section>
+
+    <section id="tab-production" class="tab-panel">
+      <div class="subhead">
+        <div><span class="eyebrow">Production Tracking</span><h2>Batches on the floor</h2></div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Batch</th><th>Design</th><th>Qty</th><th>Stage</th><th>Updated</th><th>Notes</th></tr>
+          </thead>
+          <tbody id="productionTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="tab-orders" class="tab-panel">
+      <div class="subhead">
+        <div><span class="eyebrow">Orders</span><h2>Dealer orders</h2></div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Order</th><th>Dealer</th><th>Design</th><th>Qty</th><th>Placed</th><th>Status</th></tr>
+          </thead>
+          <tbody id="ordersTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="tab-inventory" class="tab-panel">
+      <div class="subhead">
+        <div><span class="eyebrow">Inventory</span><h2>Raw material stock</h2></div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Material</th><th>Stock</th><th>Reorder Level</th><th>Status</th></tr>
+          </thead>
+          <tbody id="inventoryTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="tab-custom" class="tab-panel">
+      <div class="subhead">
+        <div><span class="eyebrow">Custom Requests</span><h2>From the catalog page</h2></div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Ref</th><th>Name</th><th>Phone</th><th>Reference Design</th><th>Qty</th><th>Details</th><th>Status</th></tr>
+          </thead>
+          <tbody id="customTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="../js/data.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/admin.js"></script>
+</body>
+</html>

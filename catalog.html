@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design Catalog — Shlok Designing</title>
+<meta name="description" content="Browse Shlok Designing's brocade and tissue-zari saree designs, or submit a custom design request.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="catalog">
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="brand">
+      <span class="mark"></span>
+      <span>Shlok Designing<small>Surat · Jacquard Saree Unit</small></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-page="home">Home</a></li>
+      <li><a href="about.html" data-page="about">About Us</a></li>
+      <li><a href="catalog.html" data-page="catalog">Design Catalog</a></li>
+      <li><a href="track-order.html" data-page="track">Track Order</a></li>
+      <li><a href="dealer/login.html" class="nav-cta">Dealer Portal</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<div class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Service 01</span>
+    <h1>Design Catalog &amp; Custom Order Studio</h1>
+    <p>Every design below is woven in-house on our triple pana rapier jacquard loom. Don't see the colourway you need? Send a custom request straight to the design team.</p>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Current line</span>
+      <h2>Active designs</h2>
+    </div>
+    <div id="designGrid" class="services-grid" style="grid-template-columns:repeat(3,1fr);"></div>
+  </div>
+</section>
+
+<section class="bg-ivory" id="custom-order">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:flex-start;">
+      <div>
+        <span class="eyebrow">Don't see it here?</span>
+        <h2>Request a custom design</h2>
+        <p>Tell us the fabric, colourway, and occasion — our design team will review feasibility and quote a minimum order quantity, then get back to you.</p>
+        <div class="card pad-md" style="margin-top:20px;">
+          <p class="text-sm mt-0" style="margin-bottom:0;"><strong>What happens next:</strong> your request is logged directly to our Admin Dashboard, where the design team reviews it for feasibility before quoting.</p>
+        </div>
+      </div>
+
+      <form id="customOrderForm" class="card pad-lg">
+        <div class="field-row">
+          <div class="field">
+            <label for="co-name">Your name</label>
+            <input id="co-name" required placeholder="e.g. Priya Mehta">
+          </div>
+          <div class="field">
+            <label for="co-phone">Phone number</label>
+            <input id="co-phone" required placeholder="10-digit mobile number" pattern="[0-9]{10}">
+          </div>
+        </div>
+        <div class="field">
+          <label for="co-email">Email (optional)</label>
+          <input id="co-email" type="email" placeholder="you@example.com">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="co-ref">Closest existing design</label>
+            <select id="co-ref"></select>
+          </div>
+          <div class="field">
+            <label for="co-qty">Quantity required</label>
+            <input id="co-qty" type="number" min="1" placeholder="e.g. 10">
+          </div>
+        </div>
+        <div class="field">
+          <label for="co-details">Describe what you need</label>
+          <textarea id="co-details" rows="4" required placeholder="Colourway, fabric type, occasion, border style, deadline..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Submit Custom Request</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand" style="color:var(--gold-400);margin-bottom:10px;">
+          <span class="mark"></span><span>Shlok Designing</span>
+        </div>
+        <p>Plot No.1, Hari Om Industrial Arena V-B, Parab Gam, Nr. Om Industrial, Parab, Surat, Gujarat, 394310</p>
+        <p style="font-family:var(--font-mono);font-size:12px;color:#B99A8D;">GSTIN 24BAJPD2932G1Z3</p>
+      </div>
+      <div>
+        <h5>Platform</h5>
+        <a href="catalog.html">Design Catalog</a>
+        <a href="track-order.html">Track Order</a>
+        <a href="dealer/login.html">Dealer Portal</a>
+        <a href="admin/login.html">Admin Login</a>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <a href="about.html">About Us</a>
+        <a href="about.html#process">Our Process</a>
+        <a href="about.html#contact">Contact</a>
+      </div>
+      <div>
+        <h5>Reach Us</h5>
+        <a href="tel:+910000000000">+91 00000 00000</a>
+        <a href="mailto:info@shlokdesigning.example">info@shlokdesigning.example</a>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <span>© 2026 Shlok Designing. Prototype built for academic purposes.</span>
+      <span class="footer-credit">Societal Internship Project — GEC Bhavnagar · Harsh Parmar (Team Lead) · Mitesh Vegad · Jay Kakadiya · Naitik Dodiya</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/catalog.js"></script>
+</body>
+</html>
