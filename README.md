@@ -9,10 +9,10 @@ Gujarat.
 
 | Name | Role |
 |---|---|
-| Harsh Parmar | Team Lead, Technical Development |
-| Mitesh Vegad | Technical Development |
-| Jay Kakadiya | Field Research & Stakeholder Communication |
-| Naitik Dodiya | Field Research & Documentation |
+|Yug maniya  | Team Lead, Technical Development |
+| Maharshi maru | Technical Development |
+| Shakti rana | Field Research & Stakeholder Communication |
+|Jeenish parmar | Field Research & Documentation |
 
 ## Company
 
